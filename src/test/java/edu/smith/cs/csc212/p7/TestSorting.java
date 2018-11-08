@@ -27,7 +27,8 @@ public class TestSorting {
 	/**
 	 * Here's some data!
 	 */
-	private static int[] data = {9,8,7,6,5,4,3,2,1};
+	//private static int[] data = {9,8,7,6,5,4,3,2,1};
+	private static int[] data = {7,5,1,2,9,3,6,4,8};
 	
 	@Test
 	public void testBubbleSort() {
@@ -44,6 +45,37 @@ public class TestSorting {
 		BubbleSort.bubbleSort(sortMe);
 		Assert.assertTrue(checkSorted(sortMe));
 	}
-
+	
+	@Test
+	public void testSelectionSort() {
+		// See if the data can be reversed:
+		ArrayList<Integer> sortMe = new ArrayList<>();
+		for (int y : data) {
+			sortMe.add(y);
+		}
+		SelectionSort.selectionSort(sortMe);
+		Assert.assertTrue(checkSorted(sortMe));
+		
+		// For good measure, let's shuffle it and sort it again to see if that works, too.
+		Collections.shuffle(sortMe);
+		SelectionSort.selectionSort(sortMe);
+		Assert.assertTrue(checkSorted(sortMe));
+	}
+	
+	@Test
+	public void testInsertionSort() {
+		// See if the data can be reversed:
+		ArrayList<Integer> sortMe = new ArrayList<>();
+		for (int y : data) {
+			sortMe.add(y);
+		}
+		InsertionSort.insertionSort(sortMe);
+		Assert.assertTrue(checkSorted(sortMe));
+		
+		// For good measure, let's shuffle it and sort it again to see if that works, too.
+		Collections.shuffle(sortMe);
+		InsertionSort.insertionSort(sortMe);
+		Assert.assertTrue(checkSorted(sortMe));
+	}
 
 }
